@@ -21,10 +21,10 @@ const CardExample = () => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button href="https://material-ui.com" color="primary">Material-UI</Button>
+        <Button href='https://material-ui.com' color='primary'>Material-UI</Button>
       </CardActions>
     </Card>
-  )
-}
+  );
+};
 
 export default CardExample;

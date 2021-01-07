@@ -4,13 +4,13 @@ import CardExample from './CardExample';
 
 function App () {
   return (
-    <div className="App">
+    <div className='App'>
       <Grid container spacing={3}>
         <Grid item xs>
           <CardExample />
         </Grid>
-        <Grid item xs></Grid>
-        <Grid item xs></Grid>
+        <Grid item xs />
+        <Grid item xs />
       </Grid>
     </div>
   );
