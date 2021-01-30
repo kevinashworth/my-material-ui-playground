@@ -5,12 +5,12 @@ import CardExample from './CardExample';
 function App () {
   return (
     <div className='App'>
-      <Grid container spacing={3}>
-        <Grid item xs>
+      <Grid container spacing={2}>
+        <Grid item xs={3} />
+        <Grid item xs={6}>
           <CardExample />
         </Grid>
-        <Grid item xs />
-        <Grid item xs />
+        <Grid item xs={3} />
       </Grid>
     </div>
   );
