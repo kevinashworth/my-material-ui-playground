@@ -3,12 +3,13 @@ import { Grid } from '@material-ui/core';
 import CardExample from './CardExample';
 import ChipExample1 from './ChipExample1';
 import ChipExample2 from './ChipExample2';
+import MyAccordion from "./MyAccordion";
 
 function App () {
   return (
-    <div className='App'>
+    <div className="App">
       <Grid container spacing={2}>
-        <Grid item xs={3}>
+        {/* <Grid item xs={3}>
           <ChipExample1 />
         </Grid>
         <Grid item xs={6}>
@@ -16,7 +17,12 @@ function App () {
         </Grid>
         <Grid item xs={3}>
           <ChipExample2 />
+        </Grid> */}
+        <Grid item xs={3} />
+        <Grid item xs={6}>
+          <MyAccordion />
         </Grid>
+        <Grid item xs={3} />
       </Grid>
     </div>
   );
