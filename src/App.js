@@ -5,12 +5,19 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import MyAccordion from "./MyAccordion";
 import MuiAccordion from "./Accordion";
+import Partial from "./table_contact_detail";
 
 function App() {
   return (
     <Box style={{ backgroundColor: "black" }} m={1} p={1}>
       <Container maxWidth="lg">
         <Grid container>
+          <Grid item xs={12}>
+            <Typography variant="h1" color="textSecondary">
+              UI
+            </Typography>
+            <Partial />
+          </Grid>
           <Grid item xs={6}>
             <Typography variant="h1" color="textSecondary">
               My

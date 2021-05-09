@@ -30,7 +30,7 @@ const MyAccordion = () => {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded disabled>
+      <Accordion expanded>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           Accordion the Third
         </AccordionSummary>
