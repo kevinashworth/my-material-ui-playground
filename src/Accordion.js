@@ -3,11 +3,11 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import Accordion from "./Accordion";
-import AccordionDetails from "./AccordionDetails";
-import AccordionSummary from "./AccordionSummary";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
 
-const MyAccordion = () => {
+const MuiAccordion = () => {
   return (
     <>
       <Accordion>
@@ -54,4 +54,4 @@ const MyAccordion = () => {
   );
 };
 
-export default MyAccordion;
+export default MuiAccordion;

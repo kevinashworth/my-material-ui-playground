@@ -1,30 +1,31 @@
-import React from 'react';
-import { Grid } from '@material-ui/core';
-import CardExample from './CardExample';
-import ChipExample1 from './ChipExample1';
-import ChipExample2 from './ChipExample2';
+import React from "react";
+import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 import MyAccordion from "./MyAccordion";
+import MuiAccordion from "./Accordion";
 
-function App () {
+function App() {
   return (
-    <div className="App">
-      <Grid container spacing={2}>
-        {/* <Grid item xs={3}>
-          <ChipExample1 />
+    <Box style={{ backgroundColor: "black" }} m={1} p={1}>
+      <Container maxWidth="lg">
+        <Grid container>
+          <Grid item xs={6}>
+            <Typography variant="h1" color="textSecondary">
+              My
+            </Typography>
+            <MyAccordion />
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="h1" color="textSecondary">
+              Mui
+            </Typography>
+            <MuiAccordion />
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <CardExample />
-        </Grid>
-        <Grid item xs={3}>
-          <ChipExample2 />
-        </Grid> */}
-        <Grid item xs={3} />
-        <Grid item xs={6}>
-          <MyAccordion />
-        </Grid>
-        <Grid item xs={3} />
-      </Grid>
-    </div>
+      </Container>
+    </Box>
   );
 }
 

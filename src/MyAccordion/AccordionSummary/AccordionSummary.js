@@ -2,9 +2,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-// import ButtonBase from '../ButtonBase';
-// import IconButton from '../IconButton';
-// import withStyles from '../styles/withStyles';
 import ButtonBase from "@material-ui/core/ButtonBase";
 import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core/styles";
@@ -19,6 +16,7 @@ export const styles = (theme) => {
   return {
     /* Styles applied to the root element. */
     root: {
+      backgroundColor: theme.palette.grey[100],
       display: "flex",
       minHeight: 8 * 6,
       transition: theme.transitions.create(

@@ -3,9 +3,6 @@ import { isFragment } from "react-is";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { chainPropTypes } from "@material-ui/utils";
-// import Collapse from '../Collapse';
-// import Paper from '../Paper';
-// import withStyles from '../styles/withStyles';
 import Collapse from "@material-ui/core/Collapse";
 import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
@@ -22,67 +19,21 @@ export const styles = (theme) => {
     root: {
       position: "relative",
       transition: theme.transitions.create(["margin"], transition),
-      "&:before": {
-        position: "absolute",
-        left: 0,
-        top: -1,
-        right: 0,
-        height: 1,
-        content: '""',
-        opacity: 1,
-        backgroundColor: theme.palette.divider,
-        transition: theme.transitions.create(
-          ["opacity", "background-color"],
-          transition
-        ),
-      },
-      "&:first-child": {
-        "&:before": {
-          display: "none",
-        },
-      },
-      "&$expanded": {
-        margin: "16px 0",
-        "&:first-child": {
-          marginTop: 0,
-        },
-        "&:last-child": {
-          marginBottom: 0,
-        },
-        "&:before": {
-          opacity: 0,
-        },
-      },
-      "&$expanded + &": {
-        "&:before": {
-          display: "none",
-        },
-      },
-      "&$disabled": {
-        backgroundColor: theme.palette.action.disabledBackground,
-      },
-    },
-    /* Styles applied to the root element if `square={false}`. */
-    rounded: {
-      borderRadius: 0,
-      "&:first-child": {
-        borderTopLeftRadius: theme.shape.borderRadius,
-        borderTopRightRadius: theme.shape.borderRadius,
-      },
-      "&:last-child": {
-        borderBottomLeftRadius: theme.shape.borderRadius,
-        borderBottomRightRadius: theme.shape.borderRadius,
-        // Fix a rendering issue on Edge
-        "@supports (-ms-ime-align: auto)": {
-          borderBottomLeftRadius: 0,
-          borderBottomRightRadius: 0,
-        },
-      },
     },
     /* Styles applied to the root element if `expanded={true}`. */
-    expanded: {},
+    expanded: {
+      margin: "16px 0",
+      "&:first-child": {
+        marginTop: 0,
+      },
+      "&:last-child": {
+        marginBottom: 0,
+      },
+    },
     /* Styles applied to the root element if `disabled={true}`. */
-    disabled: {},
+    disabled: {
+      backgroundColor: theme.palette.action.disabledBackground,
+    },
   };
 };
 
@@ -95,7 +46,6 @@ const Accordion = React.forwardRef(function Accordion(props, ref) {
     disabled = false,
     expanded: expandedProp,
     onChange,
-    square = false,
     TransitionComponent = Collapse,
     TransitionProps,
     ...other
@@ -132,12 +82,11 @@ const Accordion = React.forwardRef(function Accordion(props, ref) {
         {
           [classes.expanded]: expanded,
           [classes.disabled]: disabled,
-          [classes.rounded]: !square,
         },
         className
       )}
       ref={ref}
-      square={square}
+      square
       {...other}
     >
       <AccordionContext.Provider value={contextValue}>
@@ -210,10 +159,6 @@ Accordion.propTypes = {
    * @param {boolean} expanded The `expanded` state of the accordion.
    */
   onChange: PropTypes.func,
-  /**
-   * If `true`, rounded corners are disabled.
-   */
-  square: PropTypes.bool,
   /**
    * The component used for the collapse effect.
    * [Follow this guide](/components/transitions/#transitioncomponent-prop) to learn more about the requirements for this component.
