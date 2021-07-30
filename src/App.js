@@ -1,11 +1,8 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import MultilineFilledInput from './Multiline';
-// import CardExample from './CardExample';
-// import ChipExample1 from './ChipExample1';
-// import ChipExample2 from './ChipExample2';
 
-function App () {
+function App() {
   return (
     <div className='App'>
       <Grid container spacing={9}>
