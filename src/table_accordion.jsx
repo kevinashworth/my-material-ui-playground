@@ -2,9 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { makeStyles } from "@material-ui/core/styles";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
+// import Accordion from "@material-ui/core/Accordion";
+// import AccordionSummary from "@material-ui/core/AccordionSummary";
+// import AccordionDetails from "@material-ui/core/AccordionDetails";
+import Accordion from "./MyAccordion/Accordion";
+import AccordionSummary from "./MyAccordion/AccordionSummary";
+import AccordionDetails from "./MyAccordion/AccordionDetails";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 
@@ -20,44 +23,40 @@ See https://material-ui.com/api/accordion-summary/#css
 
 const useStylesA = makeStyles({
   root: {
-    backgroundColor: "cyan",
-    border: 0,
-    boxShadow: "none",
-    marginTop: 4,
-    minHeight: 32,
-    "&$expanded": {
-      // flex: "1 0 auto",
-      margin: "4px 0",
-    },
+    // backgroundColor: "cyan",
+    // border: 0,
+    // boxShadow: "none",
+    // marginTop: 4,
+    // minHeight: 32,
     "& .MuiCollapse-wrapper": {
-      marginTop: 0,
+      // marginTop: 0,
     },
   },
   expanded: {
-    margin: "4px 0",
+    // margin: "4px 0",
     "& :first-child": {
-      marginTop: 4,
+      // marginTop: 4,
     },
   },
 });
 
 const useStylesAD = makeStyles((theme) => ({
   root: {
-    backgroundColor: "yellow",
-    boxShadow: "inset 0px 15px 9px -10px rgba(0,0,0,0.25)", // box-shadow top side only
-    display: "block",
-    padding: theme.spacing(2),
+    // backgroundColor: "yellow",
+    // boxShadow: "inset 0px 15px 9px -10px rgba(0,0,0,0.25)", // box-shadow top side only
+    // display: "block",
+    // padding: theme.spacing(2),
   },
 }));
 
 const useStylesAS = makeStyles((theme) => ({
   root: {
-    // backgroundColor: theme.palette.info.main,
-    backgroundColor: "pink",
+    backgroundColor: theme.palette.info.main,
     height: 32,
     minHeight: 32,
-    paddingTop: 0,
+    // paddingTop: 0,
     "&$expanded": {
+      // backgroundColor: "pink",
       height: 32,
       // margin: 0,
       // marginBottom: 12,
@@ -65,27 +64,23 @@ const useStylesAS = makeStyles((theme) => ({
     },
   },
   expanded: {
-    height: 32,
+    // backgroundColor: "green",
+    // height: 32,
     // margin: 0,
     // marginBottom: 12,
-    minHeight: 32,
+    // minHeight: 32,
   },
   content: {
     color: theme.palette.text.inverse,
-    textTransform: "uppercase",
+    // textTransform: "uppercase",
     "&$expanded": {
       // margin: 0,
       // marginBottom: 12,
     },
   },
-  expandedIcon: {
-    "& svg": {
-      fontSize: 12,
-    },
-  },
   count: {
-    fontSize: "1rem",
-    fontWeight: 700,
+    // fontSize: "1rem",
+    // fontWeight: 700,
   },
 }));
 
@@ -100,9 +95,7 @@ const MyAccordion = ({ children, count, expanded, id, summary, ...rest }) => {
         root: classesA.root,
         expanded: classesA.expanded,
       }}
-      elevation={0}
       expanded={expanded}
-      square
       {...rest}
     >
       <AccordionSummary
@@ -125,7 +118,7 @@ const MyAccordion = ({ children, count, expanded, id, summary, ...rest }) => {
               {count}
             </Typography>
           </Box>
-          <Box className={classesAS.expandedIcon}>
+          <Box>
             {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </Box>
         </Box>
