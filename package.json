@@ -45,6 +45,6 @@
     ]
   },
   "devDependencies": {
-    "semistandard": "16.0.1"
+    "semistandard": "17.0.0"
   }
 }
