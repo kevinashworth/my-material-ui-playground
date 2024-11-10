@@ -1,89 +1,113 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { lighten } from "@material-ui/core";
-import FilledInput from "@material-ui/core/FilledInput";
-import FormControl from "@material-ui/core/FormControl";
-import IconButton from "@material-ui/core/IconButton";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import SendIcon from "@material-ui/icons/Send";
-import Button from "@material-ui/core/Button";
+import React from 'react';
+import { styled } from '@mui/material/styles';
+import { lighten } from '@mui/material';
+import FilledInput from '@mui/material/FilledInput';
+import FormControl from '@mui/material/FormControl';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import SendIcon from '@mui/icons-material/Send';
+import Button from '@mui/material/Button';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = 'MultilineFilledInput';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  input: `${PREFIX}-input`,
+  inputMultiline: `${PREFIX}-inputMultiline`,
+  multiline: `${PREFIX}-multiline`,
+  filledInput: `${PREFIX}-filledInput`,
+  div: `${PREFIX}-div`,
+  formControl: `${PREFIX}-formControl`,
+  button: `${PREFIX}-button`,
+  iconButton: `${PREFIX}-iconButton`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`& .${classes.root}`]: {
     // backgroundColor: "yellow",
     // borderRadius: 8,
   },
-  input: {
+
+  [`& .${classes.input}`]: {
     // backgroundColor: "green",
   },
-  inputMultiline: {
+
+  [`& .${classes.inputMultiline}`]: {
     // backgroundColor: "pink",
-    fontSize: 14,
+    fontSize: 14
   },
-  multiline: {
-    backgroundColor: lighten("#2D3C51", 0.9),
+
+  [`& .${classes.multiline}`]: {
+    backgroundColor: lighten('#2D3C51', 0.9),
     // borderRadius: 8,
     borderRadius: 4,
     fontSize: 14,
     paddingTop: 14,
-    paddingBottom: 12,
+    paddingBottom: 12
   },
-  filledInput: {
+
+  [`& .${classes.filledInput}`]: {
     // backgroundColor: "lightgrey",
     // borderRadius: 4,
-    boxShadow: "0px 2px 4px 0px rgba(0,0,0,0.25)",
+    boxShadow: '0px 2px 4px 0px rgba(0,0,0,0.25)'
     // clipPath: "inset(0px 0px -9px 0px)",
   },
-  div: {
-    padding: 16,
+
+  [`&.${classes.div}`]: {
+    padding: 16
   },
-  formControl: {
+
+  [`& .${classes.formControl}`]: {
     // borderRadius: 4,
     // boxShadow: "0px 0px 9px 0px rgba(0,0,0,0.250)",
     // clipPath: "inset(0px 0px -9px 0px)",
     // padding: 16,
   },
-  button: {
-    margin: 16,
+
+  [`& .${classes.button}`]: {
+    margin: 16
   },
-  iconButton: {
-    color: lighten("#2D3C51", 0.5),
-  },
+
+  [`& .${classes.iconButton}`]: {
+    color: lighten('#2D3C51', 0.5)
+  }
 }));
 
 const MultilineFilledInput = () => {
-  const classes = useStyles();
   return (
-    <div className={classes.div}>
-      <FormControl fullWidth variant="filled" className={classes.formControl}>
-        <Button variant="outlined" color="primary" className={classes.button}>
-          Dummy
-        </Button>
-        <FilledInput
-          classes={{
-            // root: classes.root,
-            // input: classes.input,
-            multiline: classes.multiline,
-            // inputMultiline: classes.inputMultiline,
-          }}
-          className={classes.filledInput}
-          disableUnderline
-          maxRows={4}
-          multiline
-          placeholder="Type a response..."
-          endAdornment={
-            <InputAdornment position="end">
-              <IconButton
-                aria-label="Send message"
-                className={classes.iconButton}
-              >
-                <SendIcon />
-              </IconButton>
-            </InputAdornment>
+    (
+      <Root className={classes.div}>
+        <FormControl fullWidth variant='filled' className={classes.formControl}>
+          <Button variant='outlined' color='primary' className={classes.button}>
+            Dummy
+          </Button>
+          <FilledInput
+            classes={{
+              // root: classes.root,
+              // input: classes.input,
+              multiline: classes.multiline
+              // inputMultiline: classes.inputMultiline,
+            }}
+            className={classes.filledInput}
+            disableUnderline
+            maxRows={4}
+            multiline
+            placeholder='Type a response...'
+            endAdornment={
+              <InputAdornment position='end'>
+                <IconButton aria-label='Send message' className={classes.iconButton} size='large'>
+                  <SendIcon />
+                </IconButton>
+              </InputAdornment>
           }
-        />
-      </FormControl>
-    </div>
+          />
+        </FormControl>
+      </Root>
+    )
   );
 };
 

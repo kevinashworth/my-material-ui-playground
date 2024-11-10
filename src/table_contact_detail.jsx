@@ -1,44 +1,44 @@
-import React from "react";
-import Box from "@material-ui/core/Box";
-import MyAccordion from "./table_accordion";
+import React from 'react';
+import Box from '@mui/material/Box';
+import MyAccordion from './table_accordion';
 
 const Partial = () => {
   return (
-    <Box display="flex" flexDirection="column">
+    <Box display='flex' flexDirection='column'>
       <Box flexGrow={1}>
         <MyAccordion
-          expanded={true}
-          id="accordion-ratings"
+          expanded
+          id='accordion-ratings'
           count={1}
-          summary="Reviews/Ratings"
-          display="flex"
+          summary='Reviews/Ratings'
+          display='flex'
         >
           Reviews go here
-          <Box flexGrow={1}></Box>
+          <Box flexGrow={1} />
         </MyAccordion>
       </Box>
 
       <Box flexGrow={0}>
         <MyAccordion
-          expanded={true}
-          id="accordion-invoices"
+          expanded
+          id='accordion-invoices'
           count={2}
-          summary="Invoices"
+          summary='Invoices'
         >
           Invoices go here
-          <Box flexGrow={1}></Box>
+          <Box flexGrow={1} />
         </MyAccordion>
       </Box>
 
       <Box flexGrow={0}>
         <MyAccordion
           expanded={false}
-          id="accordion-notes"
+          id='accordion-notes'
           count={3}
-          summary="Notes"
+          summary='Notes'
         >
           Notes go here
-          <Box flexGrow={1}></Box>
+          <Box flexGrow={1} />
         </MyAccordion>
       </Box>
     </Box>

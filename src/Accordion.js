@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import Accordion from "@material-ui/core/Accordion";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
 
 const MuiAccordion = () => {
   return (
@@ -15,7 +15,7 @@ const MuiAccordion = () => {
           Accordion the First
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="body1">
+          <Typography variant='body1'>
             This is the detailed contents of Accordion the First.
           </Typography>
         </AccordionDetails>
@@ -25,7 +25,7 @@ const MuiAccordion = () => {
           Accordion the Second
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="body1">
+          <Typography variant='body1'>
             This is the detailed contents of Accordion the Second.
           </Typography>
         </AccordionDetails>
@@ -35,7 +35,7 @@ const MuiAccordion = () => {
           Accordion the Third
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="body1">
+          <Typography variant='body1'>
             This is the detailed contents of Accordion the Third.
           </Typography>
         </AccordionDetails>
@@ -45,7 +45,7 @@ const MuiAccordion = () => {
           Accordion the Fourth
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="body1">
+          <Typography variant='body1'>
             This is the detailed contents of Accordion the Fourth.
           </Typography>
         </AccordionDetails>

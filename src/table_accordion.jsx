@@ -1,28 +1,28 @@
 import React from "react";
+import { styled } from '@mui/material/styles';
 import PropTypes from "prop-types";
 
-import { makeStyles } from "@material-ui/core/styles";
-// import Accordion from "@material-ui/core/Accordion";
-// import AccordionSummary from "@material-ui/core/AccordionSummary";
-// import AccordionDetails from "@material-ui/core/AccordionDetails";
+// import Accordion from "@mui/material/Accordion";
+// import AccordionSummary from "@mui/material/AccordionSummary";
+// import AccordionDetails from "@mui/material/AccordionDetails";
 import Accordion from "./MyAccordion/Accordion";
 import AccordionSummary from "./MyAccordion/AccordionSummary";
 import AccordionDetails from "./MyAccordion/AccordionDetails";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
-import ExpandLessIcon from "@material-ui/icons/ExpandLess";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-/*
-Styles here are tricky and perhaps inconsistent even within Material-UI
-Seems "expanded" is needed twice, regardless of its setting in A. Usually. Ugh.
-In AS, it makes more sense because "Pseudo-class applied to the root element, children wrapper element"
-See https://material-ui.com/api/accordion-summary/#css
-*/
+const PREFIX = 'MyAccordion';
 
-const useStylesA = makeStyles({
-  root: {
+const classes = {
+  root: `${PREFIX}-root`,
+  expanded: `${PREFIX}-expanded`
+};
+
+const StyledAccordion = styled(Accordion)({
+  [`& .${classes.root}`]: {
     // backgroundColor: "cyan",
     // border: 0,
     // boxShadow: "none",
@@ -32,7 +32,7 @@ const useStylesA = makeStyles({
       // marginTop: 0,
     },
   },
-  expanded: {
+  [`& .${classes.expanded}`]: {
     // margin: "4px 0",
     "& :first-child": {
       // marginTop: 4,
@@ -40,7 +40,33 @@ const useStylesA = makeStyles({
   },
 });
 
-const useStylesAD = makeStyles((theme) => ({
+/*
+Styles here are tricky and perhaps inconsistent even within Material-UI
+Seems "expanded" is needed twice, regardless of its setting in A. Usually. Ugh.
+In AS, it makes more sense because "Pseudo-class applied to the root element, children wrapper element"
+See https://material-ui.com/api/accordion-summary/#css
+*/
+
+
+  [`& .${classes.root}`]: {
+    // backgroundColor: "cyan",
+    // border: 0,
+    // boxShadow: "none",
+    // marginTop: 4,
+    // minHeight: 32,
+    "& .MuiCollapse-wrapper": {
+      // marginTop: 0,
+    },
+  },
+  [`& .${classes.expanded}`]: {
+    // margin: "4px 0",
+    "& :first-child": {
+      // marginTop: 4,
+    },
+  },
+});
+
+
   root: {
     // backgroundColor: "yellow",
     // boxShadow: "inset 0px 15px 9px -10px rgba(0,0,0,0.25)", // box-shadow top side only
@@ -49,7 +75,7 @@ const useStylesAD = makeStyles((theme) => ({
   },
 }));
 
-const useStylesAS = makeStyles((theme) => ({
+
   root: {
     backgroundColor: theme.palette.info.main,
     height: 32,
@@ -85,12 +111,12 @@ const useStylesAS = makeStyles((theme) => ({
 }));
 
 const MyAccordion = ({ children, count, expanded, id, summary, ...rest }) => {
-  const classesA = useStylesA();
-  const classesAD = useStylesAD();
-  const classesAS = useStylesAS();
+
+
+
 
   return (
-    <Accordion
+    (<StyledAccordion
       classes={{
         root: classesA.root,
         expanded: classesA.expanded,
@@ -130,7 +156,7 @@ const MyAccordion = ({ children, count, expanded, id, summary, ...rest }) => {
       >
         {children}
       </AccordionDetails>
-    </Accordion>
+    </StyledAccordion>)
   );
 };
 

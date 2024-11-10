@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import Accordion from "./Accordion";
-import AccordionDetails from "./AccordionDetails";
-import MyAccordionSummary from "./MyAccordionSummary";
+import Accordion from './Accordion';
+import AccordionDetails from './AccordionDetails';
+import MyAccordionSummary from './MyAccordionSummary';
 
 const MyAccordion = (props) => {
   const { children, count, expanded, id, summary } = props;

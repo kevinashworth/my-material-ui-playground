@@ -1,24 +1,34 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { styled } from '@mui/material/styles';
+const PREFIX = 'DivExample';
 
-const useStyles = makeStyles((theme) => ({
-  hoverTest: {
-    backgroundColor: "cyan",
-    "& :hover": {
-      backgroundColor: "pink"
+const classes = {
+  hoverTest: `${PREFIX}-hoverTest`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.hoverTest}`]: {
+    backgroundColor: 'cyan',
+    '& :hover': {
+      backgroundColor: 'pink'
     }
   }
 }));
 
 const DivExample = () => {
-  const classes = useStyles();
   const handleClick = () => {
-    console.log("click");
+    console.log('click');
   };
   return (
-    <div onClick={handleClick} role="gridcell" className={classes.hoverTest}>
-      <a href="void 0">This is a test</a>
-    </div>
+    (
+      <Root onClick={handleClick} role='gridcell' className={classes.hoverTest}>
+        <a href='void 0'>This is a test</a>
+      </Root>
+    )
   );
 };
 

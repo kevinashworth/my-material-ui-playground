@@ -1,39 +1,39 @@
-import * as React from "react";
+import * as React from 'react';
 // import { isFragment } from "react-is";
 // import PropTypes from "prop-types";
-import clsx from "clsx";
-// import { chainPropTypes } from "@material-ui/utils";
-import Collapse from "@material-ui/core/Collapse";
-import Paper from "@material-ui/core/Paper";
-import { withStyles } from "@material-ui/core/styles";
-import AccordionContext from "./AccordionContext";
-import useControlled from "./utils/useControlled";
+import clsx from 'clsx';
+// import { chainPropTypes } from "@mui/utils";
+import Collapse from '@mui/material/Collapse';
+import Paper from '@mui/material/Paper';
+import withStyles from '@mui/styles/withStyles';
+import AccordionContext from './AccordionContext';
+import useControlled from './utils/useControlled';
 
 export const styles = (theme) => {
   const transition = {
-    duration: theme.transitions.duration.shortest,
+    duration: theme.transitions.duration.shortest
   };
 
   return {
     /* Styles applied to the root element. */
     root: {
-      position: "relative",
-      transition: theme.transitions.create(["margin"], transition),
+      position: 'relative',
+      transition: theme.transitions.create(['margin'], transition)
     },
     /* Styles applied to the root element if `expanded={true}`. */
     expanded: {
-      margin: "16px 0",
-      "&:first-child": {
-        marginTop: 0,
+      margin: '16px 0',
+      '&:first-child': {
+        marginTop: 0
       },
-      "&:last-child": {
-        marginBottom: 0,
-      },
+      '&:last-child': {
+        marginBottom: 0
+      }
     },
     /* Styles applied to the root element if `disabled={true}`. */
     disabled: {
-      backgroundColor: theme.palette.action.disabledBackground,
-    },
+      backgroundColor: theme.palette.action.disabledBackground
+    }
   };
 };
 
@@ -53,8 +53,8 @@ const Accordion = (props) => {
   const [expanded, setExpandedState] = useControlled({
     controlled: expandedProp,
     default: defaultExpanded,
-    name: "Accordion",
-    state: "expanded",
+    name: 'Accordion',
+    state: 'expanded'
   });
 
   const handleChange = React.useCallback(
@@ -80,7 +80,7 @@ const Accordion = (props) => {
         classes.root,
         {
           [classes.expanded]: expanded,
-          [classes.disabled]: disabled,
+          [classes.disabled]: disabled
         },
         className
       )}
@@ -90,11 +90,11 @@ const Accordion = (props) => {
       <AccordionContext.Provider value={contextValue}>
         {summary}
       </AccordionContext.Provider>
-      <Collapse in={expanded} timeout="auto" {...TransitionProps}>
+      <Collapse in={expanded} timeout='auto' {...TransitionProps}>
         <div
           aria-labelledby={summary.props.id}
-          id={summary.props["aria-controls"]}
-          role="region"
+          id={summary.props['aria-controls']}
+          role='region'
         >
           {children}
         </div>

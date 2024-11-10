@@ -1,43 +1,43 @@
-import * as React from "react";
-import { isFragment } from "react-is";
-import PropTypes from "prop-types";
-import clsx from "clsx";
-import { chainPropTypes } from "@material-ui/utils";
-import Collapse from "@material-ui/core/Collapse";
-import Paper from "@material-ui/core/Paper";
-import { withStyles } from "@material-ui/core/styles";
-import AccordionContext from "./AccordionContext";
-import useControlled from "../utils/useControlled";
+import * as React from 'react';
+import { isFragment } from 'react-is';
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import { chainPropTypes } from '@mui/utils';
+import Collapse from '@mui/material/Collapse';
+import Paper from '@mui/material/Paper';
+import withStyles from '@mui/styles/withStyles';
+import AccordionContext from './AccordionContext';
+import useControlled from '../utils/useControlled';
 
 export const styles = (theme) => {
   const transition = {
-    duration: theme.transitions.duration.shortest,
+    duration: theme.transitions.duration.shortest
   };
 
   return {
     /* Styles applied to the root element. */
     root: {
-      position: "relative",
-      transition: theme.transitions.create(["margin"], transition),
+      position: 'relative',
+      transition: theme.transitions.create(['margin'], transition)
     },
     /* Styles applied to the root element if `expanded={true}`. */
     expanded: {
-      margin: "16px 0",
-      "&:first-child": {
-        marginTop: 0,
+      margin: '16px 0',
+      '&:first-child': {
+        marginTop: 0
       },
-      "&:last-child": {
-        marginBottom: 0,
-      },
+      '&:last-child': {
+        marginBottom: 0
+      }
     },
     /* Styles applied to the root element if `disabled={true}`. */
     disabled: {
-      backgroundColor: theme.palette.action.disabledBackground,
-    },
+      backgroundColor: theme.palette.action.disabledBackground
+    }
   };
 };
 
-const Accordion = React.forwardRef(function Accordion(props, ref) {
+const Accordion = React.forwardRef(function Accordion (props, ref) {
   const {
     children: childrenProp,
     classes,
@@ -54,8 +54,8 @@ const Accordion = React.forwardRef(function Accordion(props, ref) {
   const [expanded, setExpandedState] = useControlled({
     controlled: expandedProp,
     default: defaultExpanded,
-    name: "Accordion",
-    state: "expanded",
+    name: 'Accordion',
+    state: 'expanded'
   });
 
   const handleChange = React.useCallback(
@@ -81,7 +81,7 @@ const Accordion = React.forwardRef(function Accordion(props, ref) {
         classes.root,
         {
           [classes.expanded]: expanded,
-          [classes.disabled]: disabled,
+          [classes.disabled]: disabled
         },
         className
       )}
@@ -92,11 +92,11 @@ const Accordion = React.forwardRef(function Accordion(props, ref) {
       <AccordionContext.Provider value={contextValue}>
         {summary}
       </AccordionContext.Provider>
-      <TransitionComponent in={expanded} timeout="auto" {...TransitionProps}>
+      <TransitionComponent in={expanded} timeout='auto' {...TransitionProps}>
         <div
           aria-labelledby={summary.props.id}
-          id={summary.props["aria-controls"]}
-          role="region"
+          id={summary.props['aria-controls']}
+          role='region'
         >
           {children}
         </div>
@@ -118,13 +118,13 @@ Accordion.propTypes = {
     if (isFragment(summary)) {
       return new Error(
         "Material-UI: The Accordion doesn't accept a Fragment as a child. " +
-          "Consider providing an array instead."
+          'Consider providing an array instead.'
       );
     }
 
     if (!React.isValidElement(summary)) {
       return new Error(
-        "Material-UI: Expected the first child of Accordion to be a valid element."
+        'Material-UI: Expected the first child of Accordion to be a valid element.'
       );
     }
 
@@ -167,7 +167,7 @@ Accordion.propTypes = {
   /**
    * Props applied to the [`Transition`](http://reactcommunity.org/react-transition-group/transition#Transition-props) element.
    */
-  TransitionProps: PropTypes.object,
+  TransitionProps: PropTypes.object
 };
 
-export default withStyles(styles, { name: "MuiAccordion" })(Accordion);
+export default withStyles(styles, { name: 'MuiAccordion' })(Accordion);

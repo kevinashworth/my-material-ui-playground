@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 /**
  * @ignore - internal component.
@@ -6,8 +6,8 @@ import * as React from "react";
  */
 const MyAccordionContext = React.createContext({});
 
-if (process.env.NODE_ENV !== "production") {
-  MyAccordionContext.displayName = "MyAccordionContext";
+if (process.env.NODE_ENV !== 'production') {
+  MyAccordionContext.displayName = 'MyAccordionContext';
 }
 
 export default MyAccordionContext;
