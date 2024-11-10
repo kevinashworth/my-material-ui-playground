@@ -42,6 +42,6 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "7.21.11",
-    "semistandard": "16.0.1"
+    "semistandard": "17.0.0"
   }
 }
