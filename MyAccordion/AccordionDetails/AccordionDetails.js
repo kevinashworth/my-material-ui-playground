@@ -1,17 +1,17 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import clsx from "clsx";
-import { withStyles } from "@material-ui/core/styles";
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import withStyles from '@mui/styles/withStyles';
 
 export const styles = (theme) => ({
   /* Styles applied to the root element. */
   root: {
-    display: "flex",
-    padding: theme.spacing(1, 2, 2),
-  },
+    display: 'flex',
+    padding: theme.spacing(1, 2, 2)
+  }
 });
 
-const AccordionDetails = React.forwardRef(function AccordionDetails(
+const AccordionDetails = React.forwardRef(function AccordionDetails (
   props,
   ref
 ) {
@@ -37,9 +37,9 @@ AccordionDetails.propTypes = {
   /**
    * @ignore
    */
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
-export default withStyles(styles, { name: "MuiAccordionDetails" })(
+export default withStyles(styles, { name: 'MuiAccordionDetails' })(
   AccordionDetails
 );

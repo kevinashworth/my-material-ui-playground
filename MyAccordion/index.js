@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import Accordion from "./Accordion";
-import AccordionDetails from "./AccordionDetails";
-import AccordionSummary from "./AccordionSummary";
+import Accordion from './Accordion';
+import AccordionDetails from './AccordionDetails';
+import AccordionSummary from './AccordionSummary';
 
 const MyAccordion = () => {
   return (
@@ -15,7 +15,7 @@ const MyAccordion = () => {
           Accordion the First
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="body1">
+          <Typography variant='body1'>
             This is the detailed contents of Accordion the First.
           </Typography>
         </AccordionDetails>
@@ -25,7 +25,7 @@ const MyAccordion = () => {
           Accordion the Second
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="body1">
+          <Typography variant='body1'>
             This is the detailed contents of Accordion the Second.
           </Typography>
         </AccordionDetails>
@@ -35,7 +35,7 @@ const MyAccordion = () => {
           Accordion the Third
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="body1">
+          <Typography variant='body1'>
             This is the detailed contents of Accordion the Third.
           </Typography>
         </AccordionDetails>
@@ -45,7 +45,7 @@ const MyAccordion = () => {
           Accordion the Fourth
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="body1">
+          <Typography variant='body1'>
             This is the detailed contents of Accordion the Fourth.
           </Typography>
         </AccordionDetails>

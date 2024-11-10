@@ -1,5 +1,5 @@
 /* eslint-disable sort-keys */
-import { deepmerge } from '@material-ui/utils';
+import { deepmerge } from '@mui/utils';
 
 // Colors - Primary
 const DARK_BLUE = '#0F1D2F';

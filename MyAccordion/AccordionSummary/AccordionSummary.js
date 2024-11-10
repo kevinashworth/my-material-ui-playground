@@ -1,41 +1,41 @@
 /* eslint-disable jsx-a11y/aria-role */
-import * as React from "react";
-import PropTypes from "prop-types";
-import clsx from "clsx";
-import ButtonBase from "@material-ui/core/ButtonBase";
-import IconButton from "@material-ui/core/IconButton";
-import { withStyles } from "@material-ui/core/styles";
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import ButtonBase from '@mui/material/ButtonBase';
+import IconButton from '@mui/material/IconButton';
+import withStyles from '@mui/styles/withStyles';
 
-import AccordionContext from "../Accordion/AccordionContext";
+import AccordionContext from '../Accordion/AccordionContext';
 
 export const styles = (theme) => {
   const transition = {
-    duration: theme.transitions.duration.shortest,
+    duration: theme.transitions.duration.shortest
   };
 
   return {
     /* Styles applied to the root element. */
     root: {
       backgroundColor: theme.palette.grey[100],
-      display: "flex",
+      display: 'flex',
       minHeight: 8 * 6,
       transition: theme.transitions.create(
-        ["min-height", "background-color"],
+        ['min-height', 'background-color'],
         transition
       ),
       padding: theme.spacing(0, 2),
-      "&:hover:not($disabled)": {
-        cursor: "pointer",
+      '&:hover:not($disabled)': {
+        cursor: 'pointer'
       },
-      "&$expanded": {
-        minHeight: 64,
+      '&$expanded': {
+        minHeight: 64
       },
-      "&$focused": {
-        backgroundColor: theme.palette.action.focus,
+      '&$focused': {
+        backgroundColor: theme.palette.action.focus
       },
-      "&$disabled": {
-        opacity: theme.palette.action.disabledOpacity,
-      },
+      '&$disabled': {
+        opacity: theme.palette.action.disabledOpacity
+      }
     },
     /* Pseudo-class applied to the root element, children wrapper element and `IconButton` component if `expanded={true}`. */
     expanded: {},
@@ -45,32 +45,32 @@ export const styles = (theme) => {
     disabled: {},
     /* Styles applied to the children wrapper element. */
     content: {
-      display: "flex",
+      display: 'flex',
       flexGrow: 1,
-      transition: theme.transitions.create(["margin"], transition),
-      margin: "12px 0",
-      "&$expanded": {
-        margin: "20px 0",
-      },
+      transition: theme.transitions.create(['margin'], transition),
+      margin: '12px 0',
+      '&$expanded': {
+        margin: '20px 0'
+      }
     },
     /* Styles applied to the `IconButton` component when `expandIcon` is supplied. */
     expandIcon: {
-      transform: "rotate(0deg)",
-      transition: theme.transitions.create("transform", transition),
-      "&:hover": {
+      transform: 'rotate(0deg)',
+      transition: theme.transitions.create('transform', transition),
+      '&:hover': {
         // Disable the hover effect for the IconButton,
         // because a hover effect should apply to the entire Expand button and
         // not only to the IconButton.
-        backgroundColor: "transparent",
+        backgroundColor: 'transparent'
       },
-      "&$expanded": {
-        transform: "rotate(180deg)",
-      },
-    },
+      '&$expanded': {
+        transform: 'rotate(180deg)'
+      }
+    }
   };
 };
 
-const AccordionSummary = React.forwardRef(function AccordionSummary(
+const AccordionSummary = React.forwardRef(function AccordionSummary (
   props,
   ref
 ) {
@@ -115,46 +115,49 @@ const AccordionSummary = React.forwardRef(function AccordionSummary(
   };
 
   return (
-    <ButtonBase
-      focusRipple={false}
-      disableRipple
-      disabled={disabled}
-      component="div"
-      aria-expanded={expanded}
-      className={clsx(
-        classes.root,
-        {
-          [classes.disabled]: disabled,
-          [classes.expanded]: expanded,
-          [classes.focused]: focusedState,
-        },
-        className
-      )}
-      onFocusVisible={handleFocusVisible}
-      onBlur={handleBlur}
-      onClick={handleChange}
-      ref={ref}
-      {...other}
-    >
-      <div className={clsx(classes.content, { [classes.expanded]: expanded })}>
-        {children}
-      </div>
-      {expandIcon && (
-        <IconButton
-          className={clsx(classes.expandIcon, {
+    (
+      <ButtonBase
+        focusRipple={false}
+        disableRipple
+        disabled={disabled}
+        component='div'
+        aria-expanded={expanded}
+        className={clsx(
+          classes.root,
+          {
+            [classes.disabled]: disabled,
             [classes.expanded]: expanded,
-          })}
-          edge="end"
-          component="div"
-          tabIndex={null}
-          role={null}
-          aria-hidden
-          {...IconButtonProps}
-        >
-          {expandIcon}
-        </IconButton>
-      )}
-    </ButtonBase>
+            [classes.focused]: focusedState
+          },
+          className
+        )}
+        onFocusVisible={handleFocusVisible}
+        onBlur={handleBlur}
+        onClick={handleChange}
+        ref={ref}
+        {...other}
+      >
+        <div className={clsx(classes.content, { [classes.expanded]: expanded })}>
+          {children}
+        </div>
+        {expandIcon && (
+          <IconButton
+            className={clsx(classes.expandIcon, {
+              [classes.expanded]: expanded
+            })}
+            edge='end'
+            component='div'
+            tabIndex={null}
+            role={null}
+            aria-hidden
+            {...IconButtonProps}
+            size='large'
+          >
+            {expandIcon}
+          </IconButton>
+        )}
+      </ButtonBase>
+    )
   );
 });
 
@@ -195,9 +198,9 @@ AccordionSummary.propTypes = {
   /**
    * @ignore
    */
-  onFocusVisible: PropTypes.func,
+  onFocusVisible: PropTypes.func
 };
 
-export default withStyles(styles, { name: "MuiAccordionSummary" })(
+export default withStyles(styles, { name: 'MuiAccordionSummary' })(
   AccordionSummary
 );
