@@ -1,22 +1,27 @@
-import React from 'react';
-import Grid from '@mui/material/Grid';
-import MultilineFilledInput from './Multiline';
+import React from "react";
+import Grid from "@mui/material/Grid2";
+import Box from "@mui/system/Box";
+import MultilineFilledInput from "./Multiline";
+import CardExample from "./CardExample";
+import ChipExample2 from "./ChipExample2";
 
-function App () {
+function App() {
   return (
-    <div className='App'>
+    <Box className="App" bgcolor="background.primary">
       <Grid container spacing={9}>
-        <Grid item xs={3}>
-          {/* <ChipExample1 /> */}
+        <Grid xs={3} sx={{ width: 300}}>
+          <Box bgcolor="background.dark" margin={2} padding={2}>
+            <CardExample />
+          </Box>
         </Grid>
-        <Grid item xs={6} p={3} my={3} style={{ backgroundColor: 'inherit' }}>
+        <Grid xs={6} p={3} my={3}>
           <MultilineFilledInput />
         </Grid>
-        <Grid item xs={3}>
-          {/* <ChipExample2 /> */}
+        <Grid xs={3}>
+          <ChipExample2 />
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 }
 
