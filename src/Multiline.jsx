@@ -82,7 +82,7 @@ const MultilineFilledInput = () => {
     (
       <Root className={classes.div}>
         <FormControl fullWidth variant='filled' className={classes.formControl}>
-          <Button variant='outlined' color='primary' className={classes.button}>
+          <Button variant='contained' color='success' className={classes.button}>
             Dummy
           </Button>
           <FilledInput
